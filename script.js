@@ -143,19 +143,17 @@ const randomClick = (tableBoard) => {
   tableBoard[x][y].onclick();
 }
 
-
 const size = 2;
 const colors = createColors(size);
 const mainBoard = generateNewBoard(size);
 const tableBoard = createTableBoard(document, mainBoard, colors, processClick);
-const iterations = 5;
-const timeout = 5000 / iterations;
+let iterations = 5;
 
 const btnStart = document.getElementById("btnStartGame");
-
-
 btnStart.onclick = () => {
+  const timeout = 2000 / iterations;
   startBoard(tableBoard, iterations, timeout);
+  iterations *= 2;
 };
 
 
